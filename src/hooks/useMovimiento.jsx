@@ -8,7 +8,7 @@ export const useMovimiento = () => {
 
     const agregarProyecto = (movimiento) =>{
         const nuevaNota = {
-            id: Date.nom(),
+            id: crypto.randomUUID(),
             ...movimiento
         };
 
@@ -35,6 +35,5 @@ export const useMovimiento = () => {
         dispatch(action)
     }   
     
-
   return {listaProyectos, agregarProyecto, editarProyecto, elimnarProyecto}
 }

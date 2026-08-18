@@ -1,7 +1,54 @@
 import { FiFolderPlus, FiX } from "react-icons/fi";
 import { ProjectForm } from "./ProjectForm";
+import { useEffect, useState } from "react";
+import { useMovimiento } from "../../hooks/useMovimiento";
+import { useFormularioMovimiento } from "../../hooks/useFormularioMovimiento";
 
 export const ProjectModal = ({ onClose }) => {
+  const { listaProyectos, agregarProyecto, editarProyecto, eliminarProyecto } =
+    useMovimiento();
+
+  const {
+    form,
+    setForm,
+    handleInputChange,
+    handleCheckboxChange,
+    handleColorChange,
+  } = useFormularioMovimiento();
+
+  const [idEditando, setIdEditando] = useState(null);
+
+  const handleGuardarProyecto = (e) => {
+    e.preventDefault();
+    if (idEditando) {
+      editarProyecto({ form });
+    } else {
+      agregarProyecto({ form });
+    }
+    setIdEditando(null);
+    setForm({
+      nombre: "",
+      descripcion: "",
+      categoria: "",
+      prioridad: "",
+      fechaLimite: "",
+      color: "",
+      favorito: false,
+    });
+  };
+
+  const handleEditaProyecto = (id) => {
+    setIdEditando(id);
+    const edit = listaProyectos.find((proyecto) => proyecto.id === id);
+    if (edit) {
+      setForm(edit);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("listaProyectos", JSON.stringify(listaProyectos));
+  }, [listaProyectos]);
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
       <div className="w-full max-w-[520px] overflow-hidden rounded-2xl bg-white shadow-2xl">
@@ -28,7 +75,14 @@ export const ProjectModal = ({ onClose }) => {
         </div>
 
         {/* Formulario */}
-        <ProjectForm onCancel={onClose} />
+        <ProjectForm
+          onCancel={onClose}
+          form={form}
+          handleInputChange={handleInputChange}
+          handleGuardarProyecto={handleGuardarProyecto}
+          handleCheckboxChange={handleCheckboxChange}
+          handleColorChange={handleColorChange}
+        />
       </div>
     </div>
   );

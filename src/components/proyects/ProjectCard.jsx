@@ -1,6 +1,7 @@
+import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 import {
   FiStar,
-  FiMoreVertical,
   FiCheckSquare,
   FiCalendar,
 } from "react-icons/fi";
@@ -69,9 +70,10 @@ export const ProjectCard = ({ project }) => {
             />
           </button>
 
-          <button className="rounded border border-indigo-200 p-1 text-indigo-400 hover:bg-indigo-50">
-            <FiMoreVertical size={11} />
-          </button>
+          <div className="flex flex-row gap-1">
+            <button className="flex felx-row items-center text-[8px] rounded border border-red-500 p-1 bg-red-50 text-red-500 hover:bg-red-100" > <FaEdit />editar</button>
+            <button className="flex flex-row items-center text-[8px] rounded border border-amber-500 p-1 bg-amber-50 text-amber-500 hover:bg-amber-100" > <MdDelete />eliminar</button>
+          </div>
         </div>
       </div>
 
@@ -142,7 +144,8 @@ export const ProjectCard = ({ project }) => {
         </div>
       </div>
 
-      {/* Botón */}
+
+        {/* Botón */}
       <button
         className="
           mt-2.5 h-7 w-full rounded-sm
@@ -154,6 +157,7 @@ export const ProjectCard = ({ project }) => {
       >
         Abrir proyecto
       </button>
+
     </article>
   );
 };

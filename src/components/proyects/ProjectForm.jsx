@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   FiCalendar,
   FiChevronDown,
@@ -7,41 +6,17 @@ import {
 } from "react-icons/fi";
 import { ProjectColorPicker } from "./ProjectColorPicker";
 
-export const ProjectForm = ({ onCancel }) => {
-  const [formData, setFormData] = useState({
-    nombre: "",
-    descripcion: "",
-    categoria: "Desarrollo",
-    prioridad: "Media",
-    fechaLimite: "",
-    color: "blue",
-    favorito: false,
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Proyecto:", formData);
-
-    // Aquí posteriormente llamarás a tu API
-    // createProject(formData)
-
-    onCancel();
-  };
-
+export const ProjectForm = ({
+  onCancel,
+  form,
+  handleInputChange,
+  handleGuardarProyecto,
+  handleCheckboxChange,
+  handleColorChange,
+}) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleGuardarProyecto} className="space-y-4 px-5 py-4">
       <div className="space-y-4 px-5 py-4">
-        {/* Nombre */}
         <div>
           <label
             htmlFor="nombre"
@@ -54,8 +29,8 @@ export const ProjectForm = ({ onCancel }) => {
             id="nombre"
             name="nombre"
             type="text"
-            value={formData.nombre}
-            onChange={handleChange}
+            value={form.nombre}
+            onChange={handleInputChange}
             placeholder="Ej. MyLibrary"
             className="h-9 w-full rounded-lg border border-gray-200 px-3 text-xs text-gray-800 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
           />
@@ -73,8 +48,8 @@ export const ProjectForm = ({ onCancel }) => {
           <textarea
             id="descripcion"
             name="descripcion"
-            value={formData.descripcion}
-            onChange={handleChange}
+            value={form.descripcion}
+            onChange={handleInputChange}
             rows={3}
             placeholder="Biblioteca digital personal..."
             className="w-full resize-none rounded-lg border border-gray-200 px-3 py-2 text-xs text-gray-700 outline-none transition placeholder:text-gray-400 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
@@ -95,8 +70,8 @@ export const ProjectForm = ({ onCancel }) => {
               <select
                 id="categoria"
                 name="categoria"
-                value={formData.categoria}
-                onChange={handleChange}
+                value={form.categoria}
+                onChange={handleInputChange}
                 className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
               >
                 <option>Desarrollo</option>
@@ -124,8 +99,8 @@ export const ProjectForm = ({ onCancel }) => {
               <select
                 id="prioridad"
                 name="prioridad"
-                value={formData.prioridad}
-                onChange={handleChange}
+                value={form.prioridad}
+                onChange={handleInputChange}
                 className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
               >
                 <option>Baja</option>
@@ -155,8 +130,8 @@ export const ProjectForm = ({ onCancel }) => {
               id="fechaLimite"
               name="fechaLimite"
               type="date"
-              value={formData.fechaLimite}
-              onChange={handleChange}
+              value={form.fechaLimite}
+              onChange={handleInputChange}
               className="h-9 w-full rounded-lg border border-gray-200 px-3 pr-10 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
             />
 
@@ -168,16 +143,7 @@ export const ProjectForm = ({ onCancel }) => {
         </div>
 
         {/* Color */}
-        <ProjectColorPicker
-          value={formData.color}
-          onChange={(color) =>
-            setFormData((prev) => ({
-              ...prev,
-              color,
-            }))
-          }
-        />
-
+        <ProjectColorPicker value={form.color} onChange={handleColorChange} />
         {/* Favorito */}
         <div className="flex items-center justify-between">
           <div>
@@ -193,18 +159,17 @@ export const ProjectForm = ({ onCancel }) => {
           <button
             type="button"
             onClick={() =>
-              setFormData((prev) => ({
-                ...prev,
-                favorito: !prev.favorito,
-              }))
+              handleCheckboxChange({
+                target: { name: "favorito", checked: !form.favorito },
+              })
             }
             className={`relative h-4 w-7 rounded-full transition ${
-              formData.favorito ? "bg-indigo-500" : "bg-gray-300"
+              form.favorito ? "bg-indigo-500" : "bg-gray-300"
             }`}
           >
             <span
               className={`absolute top-0.5 h-3 w-3 rounded-full bg-white shadow-sm transition ${
-                formData.favorito ? "right-0.5" : "left-0.5"
+                form.favorito ? "right-0.5" : "left-0.5"
               }`}
             />
           </button>
