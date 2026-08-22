@@ -1,7 +1,6 @@
-import { useReducer } from "react"
+import { useEffect, useReducer } from "react"
 import { MovimientoReducer } from "../reducer/MovimientoReducer"
 import { initialState } from "../data/initialState"
-
 
 export const useMovimiento = () => {
     const [listaProyectos, dispatch] = useReducer(MovimientoReducer, [], initialState)
@@ -27,13 +26,17 @@ export const useMovimiento = () => {
         dispatch(action)
     }
 
-    const elimnarProyecto = (id) =>{
+    const eliminarProyecto = (id) =>{
         const action={
             type:"[MOVIMEINTO] elimnar movimiento",
             payload: id
         }
         dispatch(action)
     }   
-    
-  return {listaProyectos, agregarProyecto, editarProyecto, elimnarProyecto}
+
+    useEffect(() => {
+    localStorage.setItem("listaProyectos", JSON.stringify(listaProyectos));
+  }, [listaProyectos]);
+
+  return {listaProyectos, agregarProyecto, editarProyecto, eliminarProyecto}
 }

@@ -1,29 +1,25 @@
 import { FiFolderPlus, FiX } from "react-icons/fi";
 import { ProjectForm } from "./ProjectForm";
-import { useEffect, useState } from "react";
-import { useMovimiento } from "../../hooks/useMovimiento";
 import { useFormularioMovimiento } from "../../hooks/useFormularioMovimiento";
+import { useProyects } from "../../hooks/useProyects";
 
-export const ProjectModal = ({ onClose }) => {
-  const { listaProyectos, agregarProyecto, editarProyecto, eliminarProyecto } =
-    useMovimiento();
+export const ProjectModal = ({ onClose, form,
+    setForm, }) => {
+  const { agregarProyecto, editarProyecto,idEditando, setIdEditando} =
+    useProyects();
 
   const {
-    form,
-    setForm,
     handleInputChange,
     handleCheckboxChange,
     handleColorChange,
   } = useFormularioMovimiento();
 
-  const [idEditando, setIdEditando] = useState(null);
-
   const handleGuardarProyecto = (e) => {
     e.preventDefault();
     if (idEditando) {
-      editarProyecto({ form });
+      editarProyecto(form);
     } else {
-      agregarProyecto({ form });
+      agregarProyecto(form );
     }
     setIdEditando(null);
     setForm({
@@ -37,17 +33,7 @@ export const ProjectModal = ({ onClose }) => {
     });
   };
 
-  const handleEditaProyecto = (id) => {
-    setIdEditando(id);
-    const edit = listaProyectos.find((proyecto) => proyecto.id === id);
-    if (edit) {
-      setForm(edit);
-    }
-  };
 
-  useEffect(() => {
-    localStorage.setItem("listaProyectos", JSON.stringify(listaProyectos));
-  }, [listaProyectos]);
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
@@ -76,6 +62,7 @@ export const ProjectModal = ({ onClose }) => {
 
         {/* Formulario */}
         <ProjectForm
+          idEditando = {idEditando}
           onCancel={onClose}
           form={form}
           handleInputChange={handleInputChange}

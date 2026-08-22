@@ -6,10 +6,12 @@ import { Proyectos } from "../pages/Proyectos";
 import { Tareas } from "../pages/Tareas";
 import { Navigate } from "react-router-dom";
 import { Sidebar } from "../components/layout/Sidebar";
+import { ProyectsProvider } from "../context/ProyectsProvider";
 
 export const AppRouter = () => {
   return (
     <>
+      <ProyectsProvider>
       <div>
         <Sidebar />
       </div>
@@ -26,6 +28,7 @@ export const AppRouter = () => {
           <Route path="/*" element={<Navigate to="/home" />}></Route>
         </Routes>
       </div>
+      </ProyectsProvider>
     </>
   );
 };

@@ -1,10 +1,8 @@
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-import {
-  FiStar,
-  FiCheckSquare,
-  FiCalendar,
-} from "react-icons/fi";
+import { FiStar, FiCheckSquare, FiCalendar } from "react-icons/fi";
+import { useProyects } from "../../hooks/useProyects";
+import { ProjectModal } from "./ProjectModal";
 
 const priorityStyles = {
   Alta: "bg-red-50 text-red-500",
@@ -18,7 +16,12 @@ const statusStyles = {
   Completado: "bg-slate-100 text-slate-500",
 };
 
-export const ProjectCard = ({ project }) => {
+export const ProjectCard = ({
+  project,
+  eliminarProyecto,
+  handleEditaProyecto,
+}) => {
+  const { isModalOpen, setIsModalOpen } = useProyects();
   return (
     <article
       className="
@@ -40,15 +43,15 @@ export const ProjectCard = ({ project }) => {
               text-slate-400
             "
           >
-            {project.category}
+            {project.categoria}
           </span>
 
           <h2 className="mt-1.5 truncate text-[10px] font-semibold text-slate-700">
-            {project.name}
+            {project.nombre}
           </h2>
 
           <p className="mt-0.5 truncate text-[8px] text-slate-400">
-            {project.description}
+            {project.descripcion}
           </p>
         </div>
 
@@ -56,23 +59,41 @@ export const ProjectCard = ({ project }) => {
           <button
             className={`
               rounded p-1
-              ${
-                project.favorite
-                  ? "text-amber-400"
-                  : "text-slate-300"
-              }
+              ${project.favorito ? "text-amber-400" : "text-slate-300"}
               hover:bg-slate-50
             `}
           >
             <FiStar
               size={11}
-              fill={project.favorite ? "currentColor" : "none"}
+              fill={project.favorito ? "currentColor" : "none"}
             />
           </button>
 
           <div className="flex flex-row gap-1">
-            <button className="flex felx-row items-center text-[8px] rounded border border-red-500 p-1 bg-red-50 text-red-500 hover:bg-red-100" > <FaEdit />editar</button>
-            <button className="flex flex-row items-center text-[8px] rounded border border-amber-500 p-1 bg-amber-50 text-amber-500 hover:bg-amber-100" > <MdDelete />eliminar</button>
+            <button
+              className="flex felx-row items-center text-[8px] rounded border border-red-500 p-1 bg-red-50 text-red-600 hover:bg-red-100 font-bold "
+              onClick={() => {
+                (handleEditaProyecto(project.id), setIsModalOpen(true));
+              }}
+            >
+              {" "}
+              <FaEdit />
+              editar
+            </button>
+            {/* {isModalOpen && (
+              <ProjectModal onClose={() => setIsModalOpen(false)
+              }
+              
+              />
+            )}   */}
+            <button
+              className="flex flex-row items-center text-[8px] rounded border border-amber-500 p-1 bg-amber-50 text-amber-600 hover:bg-amber-100 font-bold"
+              onClick={() => eliminarProyecto(project.id)}
+            >
+              {" "}
+              <MdDelete />
+              eliminar
+            </button>
           </div>
         </div>
       </div>
@@ -85,21 +106,21 @@ export const ProjectCard = ({ project }) => {
               className={`
                 h-full rounded-full
                 ${
-                  project.progress === 100
+                  project.progreso === 100
                     ? "bg-green-500"
-                    : project.progress < 40
-                    ? "bg-amber-500"
-                    : "bg-green-500"
+                    : project.progreso < 40
+                      ? "bg-amber-500"
+                      : "bg-green-500"
                 }
               `}
               style={{
-                width: `${project.progress}%`,
+                width: `${project.progreso}%`,
               }}
             />
           </div>
 
           <span className="ml-2 text-[7px] text-slate-400">
-            {project.progress}%
+            {project.progreso}%
           </span>
         </div>
       </div>
@@ -109,12 +130,12 @@ export const ProjectCard = ({ project }) => {
         <div className="flex items-center gap-2 text-[7px] text-slate-400">
           <span className="flex items-center gap-1">
             <FiCheckSquare size={9} />
-            {project.tasks} tareas
+            {project.tareas} tareas
           </span>
 
           <span className="flex items-center gap-1">
             <FiCalendar size={9} />
-            {project.date}
+            {project.fecha}
           </span>
         </div>
       </div>
@@ -126,26 +147,25 @@ export const ProjectCard = ({ project }) => {
             className={`
               rounded-full px-2 py-0.5
               text-[7px] font-medium
-              ${priorityStyles[project.priority]}
+              ${priorityStyles[project.prioridad]}
             `}
           >
-            {project.priority}
+            {project.prioridad}
           </span>
 
           <span
             className={`
               rounded-full px-2 py-0.5
               text-[7px] font-medium
-              ${statusStyles[project.status]}
+              ${statusStyles[project.estado]}
             `}
           >
-            {project.status}
+            {project.estado}
           </span>
         </div>
       </div>
 
-
-        {/* Botón */}
+      {/* Botón */}
       <button
         className="
           mt-2.5 h-7 w-full rounded-sm
@@ -157,7 +177,6 @@ export const ProjectCard = ({ project }) => {
       >
         Abrir proyecto
       </button>
-
     </article>
   );
 };

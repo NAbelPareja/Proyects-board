@@ -11,6 +11,10 @@ export const useFormularioMovimiento = () => {
     favorito: false,
   });
 
+    const [idEditando, setIdEditando] = useState(null);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleInputChange = (e) => {
     e.preventDefault();
     setForm({
@@ -35,5 +39,5 @@ export const useFormularioMovimiento = () => {
   }
   
 
-  return {form, setForm, handleInputChange, handleCheckboxChange, handleColorChange};
+  return {form, setForm, handleInputChange, handleCheckboxChange, handleColorChange, idEditando, setIdEditando, isModalOpen, setIsModalOpen};
 };
