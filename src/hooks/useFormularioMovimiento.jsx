@@ -8,6 +8,8 @@ export const useFormularioMovimiento = () => {
     prioridad: "",
     fechaLimite: "",
     color: "",
+    tareas: 0,
+    progreso: 0,
     favorito: false,
   });
 

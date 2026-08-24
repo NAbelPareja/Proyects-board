@@ -1,6 +1,20 @@
+import { useProyects } from "../../hooks/useProyects";
 import { ProjectCard } from "./ProjectCard";
 
-export const ProjectGrid = ({ listaProyectosFiltrado, eliminarProyecto, handleEditaProyecto }) => {
+export const ProjectGrid = ({
+  listaProyectosFiltrado
+
+}) => {
+
+  const {setIdEditando,setForm , listaProyectos } = useProyects()
+
+  const handleEditaProyecto = (id) => {
+      setIdEditando(id);
+      const edit = listaProyectos.find((proyecto) => proyecto.id === id);
+      if (edit) {
+        setForm(edit);
+      }
+    };
   return (
     <div
       className="
@@ -10,7 +24,8 @@ export const ProjectGrid = ({ listaProyectosFiltrado, eliminarProyecto, handleEd
       "
     >
       {listaProyectosFiltrado.map((project) => (
-        <ProjectCard eliminarProyecto={eliminarProyecto} handleEditaProyecto={handleEditaProyecto}
+        <ProjectCard
+          handleEditaProyecto={handleEditaProyecto}
           key={project.id}
           project={project}
         />

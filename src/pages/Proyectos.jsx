@@ -8,9 +8,18 @@ import { ProjectFilters } from "../components/proyects/ProjectFilters";
 import { ProjectGrid } from "../components/proyects/ProjectGrid";
 
 import { useProyects } from "../hooks/useProyects";
+import { useFormularioMovimiento } from "../hooks/useFormularioMovimiento";
 
 export const Proyectos = () => {
-  const { listaProyectos, eliminarProyecto, setIdEditando,idEditando, setForm, form } = useProyects();
+  const { listaProyectos, eliminarProyecto } = useProyects();
+
+  const {
+    form,
+    setForm,
+    isModalOpen,
+    setIsModalOpen,
+  } = useFormularioMovimiento();
+
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -35,14 +44,6 @@ export const Proyectos = () => {
     return cumpleNombre && cumpleCategoria && cumplePrioridad && cumpleFavorito;
   });
 
-  const handleEditaProyecto = (id) => {
-    setIdEditando(id);
-    const edit = listaProyectos.find((proyecto) => proyecto.id === id);
-    console.log("archivo para el form",edit)
-    if (edit) {
-      setForm(edit);
-    }
-  };
 
   return (
     <div className=" min-h-screen bg-slate-50 text-slate-800">
@@ -53,7 +54,8 @@ export const Proyectos = () => {
 
         <main className="mx-auto max-w-[1400px] px-4 py-6 sm:px-6 lg:px-7">
           <div className="mx-auto max-w-[1180px]">
-            <ProjectsHeader idEditando={idEditando} form={form} setForm={setForm}/>
+            <ProjectsHeader
+            />
 
             <ProjectFilters
               marcarFavorito={marcarFavorito}
@@ -66,7 +68,14 @@ export const Proyectos = () => {
               setBuscar={setBuscar}
             />
 
-            <ProjectGrid listaProyectosFiltrado={listaProyectosFiltrado} handleEditaProyecto={handleEditaProyecto} eliminarProyecto={eliminarProyecto}/>
+            <ProjectGrid
+              listaProyectosFiltrado={listaProyectosFiltrado}
+              eliminarProyecto={eliminarProyecto}
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+              form={form}
+              setForm={setForm}
+            />
           </div>
         </main>
       </div>

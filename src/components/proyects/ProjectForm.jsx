@@ -5,15 +5,16 @@ import {
   FiAlertCircle,
 } from "react-icons/fi";
 import { ProjectColorPicker } from "./ProjectColorPicker";
+import { useProyects } from "../../hooks/useProyects";
 
-export const ProjectForm = ({
-  onCancel,
-  form,
-  handleInputChange,
-  handleGuardarProyecto,
-  handleCheckboxChange,
-  handleColorChange,
-}) => {
+export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
+  const {
+    form,
+    handleInputChange,
+    handleCheckboxChange,
+    handleColorChange,
+  } = useProyects();
+
   return (
     <form onSubmit={handleGuardarProyecto} className="space-y-4 px-5 py-4">
       <div className="space-y-4 px-5 py-4">

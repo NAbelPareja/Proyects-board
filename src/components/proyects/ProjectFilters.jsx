@@ -38,15 +38,7 @@ export const ProjectFilters = ({
 
       {/* Filtros */}
       <div className="flex flex-wrap gap-1.5">
-        <button
-          className="
-            h-8 rounded-md border border-indigo-300
-            bg-indigo-500 px-3 text-[9px]
-            font-medium text-white
-          "
-        >
-          Todos
-        </button>
+        
 
         <div className="relative">
           <select
@@ -56,9 +48,10 @@ export const ProjectFilters = ({
             onChange={(e) => setMarcarPrioridad(e.target.value)}
             className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
           >
-            <option>Baja</option>
-            <option>Media</option>
-            <option>Alta</option>
+            <option value="">Prioridad</option>
+            <option value="Baja">Baja</option>
+            <option value="Media">Media</option>
+            <option value="Alta">Alta</option>
           </select>
 
           <FiChevronDown
@@ -75,10 +68,11 @@ export const ProjectFilters = ({
             onChange={(e) => setMarcarCategoria(e.target.value)}
             className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
           >
-            <option>Desarrollo</option>
-            <option>Diseño</option>
-            <option>Estudios</option>
-            <option>Personal</option>
+            <option value="">Categoria</option>
+            <option value="Desarrollo">Desarrollo</option>
+            <option value="Diseño">Diseño</option>
+            <option value="Estudios">Estudios</option>
+            <option value="Personal">Personal</option>
           </select>
 
           <FiChevronDown

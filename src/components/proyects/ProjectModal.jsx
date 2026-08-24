@@ -1,25 +1,20 @@
 import { FiFolderPlus, FiX } from "react-icons/fi";
 import { ProjectForm } from "./ProjectForm";
-import { useFormularioMovimiento } from "../../hooks/useFormularioMovimiento";
 import { useProyects } from "../../hooks/useProyects";
 
-export const ProjectModal = ({ onClose, form,
-    setForm, }) => {
-  const { agregarProyecto, editarProyecto,idEditando, setIdEditando} =
-    useProyects();
-
-  const {
-    handleInputChange,
-    handleCheckboxChange,
-    handleColorChange,
-  } = useFormularioMovimiento();
+export const ProjectModal = ({
+  onClose,
+  handleCheckboxChange,
+  handleColorChange,
+}) => {
+  const { agregarProyecto, editarProyecto,form, setForm, setIdEditando,idEditando, } = useProyects();
 
   const handleGuardarProyecto = (e) => {
     e.preventDefault();
     if (idEditando) {
       editarProyecto(form);
     } else {
-      agregarProyecto(form );
+      agregarProyecto(form);
     }
     setIdEditando(null);
     setForm({
@@ -29,11 +24,11 @@ export const ProjectModal = ({ onClose, form,
       prioridad: "",
       fechaLimite: "",
       color: "",
+      tareas:0,
+      progreso:0,
       favorito: false,
     });
   };
-
-
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
@@ -62,10 +57,8 @@ export const ProjectModal = ({ onClose, form,
 
         {/* Formulario */}
         <ProjectForm
-          idEditando = {idEditando}
+          idEditando={idEditando}
           onCancel={onClose}
-          form={form}
-          handleInputChange={handleInputChange}
           handleGuardarProyecto={handleGuardarProyecto}
           handleCheckboxChange={handleCheckboxChange}
           handleColorChange={handleColorChange}

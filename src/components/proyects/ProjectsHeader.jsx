@@ -2,9 +2,17 @@ import { FiPlus } from "react-icons/fi";
 import { ProjectModal } from "./ProjectModal";
 import { useProyects } from "../../hooks/useProyects";
 
-export const ProjectsHeader = ({idEditando, form, setForm}) => {
-  const { isModalOpen, setIsModalOpen } =
-    useProyects();
+export const ProjectsHeader = ({
+  idEditando,
+  setIdEditando,
+  form,
+  setForm,
+  handleInputChange,
+  handleCheckboxChange,
+  handleColorChange,
+  
+}) => {
+  const {setIsModalOpen,isModalOpen,}=useProyects()
   return (
     <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <div>
@@ -23,7 +31,7 @@ export const ProjectsHeader = ({idEditando, form, setForm}) => {
           shadow-sm transition
           hover:bg-indigo-600
         "
-        onClick={() => setIsModalOpen(true)}
+        onClick={() => {setIsModalOpen(true)}}
       >
         <FiPlus size={12} />
         Nuevo proyecto
@@ -33,6 +41,10 @@ export const ProjectsHeader = ({idEditando, form, setForm}) => {
           form={form}
           setForm={setForm}
           idEditando={idEditando}
+          setIdEditando={setIdEditando}
+          handleInputChange={handleInputChange}
+          handleCheckboxChange={handleCheckboxChange}
+          handleColorChange={handleColorChange}
           onClose={() => setIsModalOpen(false)}
         />
       )}

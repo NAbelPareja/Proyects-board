@@ -1,8 +1,8 @@
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { FiStar, FiCheckSquare, FiCalendar } from "react-icons/fi";
-import { useProyects } from "../../hooks/useProyects";
 import { ProjectModal } from "./ProjectModal";
+import { useProyects } from "../../hooks/useProyects";
 
 const priorityStyles = {
   Alta: "bg-red-50 text-red-500",
@@ -18,10 +18,11 @@ const statusStyles = {
 
 export const ProjectCard = ({
   project,
-  eliminarProyecto,
-  handleEditaProyecto,
+  isModalOpen,
+  handleEditaProyecto
 }) => {
-  const { isModalOpen, setIsModalOpen } = useProyects();
+  const { eliminarProyecto, setIsModalOpen } =
+    useProyects();
   return (
     <article
       className="
@@ -80,12 +81,9 @@ export const ProjectCard = ({
               <FaEdit />
               editar
             </button>
-            {/* {isModalOpen && (
-              <ProjectModal onClose={() => setIsModalOpen(false)
-              }
-              
-              />
-            )}   */}
+            {isModalOpen && (
+              <ProjectModal onClose={() => setIsModalOpen(false)} />
+            )}
             <button
               className="flex flex-row items-center text-[8px] rounded border border-amber-500 p-1 bg-amber-50 text-amber-600 hover:bg-amber-100 font-bold"
               onClick={() => eliminarProyecto(project.id)}
@@ -135,7 +133,7 @@ export const ProjectCard = ({
 
           <span className="flex items-center gap-1">
             <FiCalendar size={9} />
-            {project.fecha}
+            {project.fechaLimite}
           </span>
         </div>
       </div>

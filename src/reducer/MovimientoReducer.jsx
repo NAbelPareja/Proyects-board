@@ -7,7 +7,7 @@ export const MovimientoReducer = (state, action) => {
             return[...state, action.payload]
         case "[MOVIMIENTO] editar movimiento":
             return state.map( mov => {
-                if(action.payload.id == mov.id)
+                if(action.payload.id === mov.id){
                     return{
                     ...mov,
                     nombre: action.payload.nombre,
@@ -18,6 +18,7 @@ export const MovimientoReducer = (state, action) => {
                     color: action.payload.color,
                     favorito: action.payload.favorito,
                     }
+                }
                 else{
                     return mov;
                 }
