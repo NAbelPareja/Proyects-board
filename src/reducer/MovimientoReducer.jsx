@@ -1,5 +1,4 @@
 
-
 export const MovimientoReducer = (state, action) => {
 
     switch(action.type){

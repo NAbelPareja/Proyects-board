@@ -1,33 +1,10 @@
 import { FiArrowRight } from "react-icons/fi";
 import {ProjectCard} from "./ProjectCard";
-
-const projects = [
-  {
-    category: "Desarrollo",
-    title: "MyLibrary",
-    description: "Biblioteca digital personal",
-    progress: 80,
-    tasks: 8,
-    date: "20 Sep",
-    priority: "Alta",
-    status: "Activo",
-    favorite: true,
-  },
-  {
-    category: "Finanzas",
-    title: "Gasper",
-    description: "Finanzas personales y presupuesto",
-    progress: 55,
-    tasks: 12,
-    date: "12 Oct",
-    priority: "Media",
-    status: "Activo",
-    favorite: false,
-  },
-];
+import { useProyects } from "../../hooks/useProyects";
 
 
 export const RecentProjects = () => {
+  const {listaProyectos}=useProyects()
   return (
     <section>
       <div className="mb-3 flex items-center justify-between">
@@ -42,10 +19,10 @@ export const RecentProjects = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-2">
-        {projects.map((project) => (
+        {listaProyectos.slice(-3).map((project) => (
           <ProjectCard
-            key={project.title}
-            {...project}
+            key={project.id}
+            project= {project}
           />
         ))}
       </div>

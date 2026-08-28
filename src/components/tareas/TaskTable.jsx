@@ -1,6 +1,10 @@
+import { useProyects } from "../../hooks/useProyects";
 import { TaskRow } from "./TaskRow";
 
 export const TaskTable = ({ tasks }) => {
+
+  const {listaTareas} =useProyects();
+
   if (tasks.length === 0) {
     return (
       <div className="rounded-lg border border-slate-200 bg-white py-12 text-center">
@@ -52,7 +56,7 @@ export const TaskTable = ({ tasks }) => {
         </span>
       </div>
 
-      {tasks.map((task) => (
+      {listaTareas.map((task) => (
         <TaskRow
           key={task.id}
           task={task}

@@ -1,6 +1,9 @@
 import { FiPlus } from "react-icons/fi";
+import { useState } from "react";
+import { TaskModal } from "./TaskModal";
 
 export const TasksHeader = () => {
+  const [isOpenTareaForm, setIsOpenTareaForm] = useState(null)
   return (
     <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <div>
@@ -28,10 +31,17 @@ export const TasksHeader = () => {
           transition
           hover:bg-indigo-600
         "
+        onClick={()=> setIsOpenTareaForm(true)}
       >
         <FiPlus size={12} />
         Nueva tarea
       </button>
+      {isOpenTareaForm && (
+        <TaskModal
+        onClose = {()=>setIsOpenTareaForm(false)}
+        />
+      )}
+      
     </div>
   );
 };

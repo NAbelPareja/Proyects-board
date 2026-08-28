@@ -23,35 +23,30 @@ export const TaskRow = ({ task }) => {
       >
         <div className="min-w-0">
           <p className="truncate text-[9px] font-medium text-slate-700">
-            {task.title}
+            {task.nombre}
           </p>
 
           <div className="mt-0.5 flex items-center gap-1 text-[7px] text-slate-400">
             <FiFolder size={8} />
-            {task.project}
+            {task.nombreProyecto}
           </div>
         </div>
 
         <TaskBadge
           type="status"
-          value={task.status}
+          value={task.estado}
         />
 
         <TaskBadge
           type="priority"
-          value={task.priority}
+          value={task.prioridad}
         />
 
         <div className="flex items-center gap-1 text-[7px] text-slate-400">
           <FiCalendar size={9} />
-          {task.dueDate}
+          {task.fechaLimite}
         </div>
 
-        <div className="flex justify-end">
-          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-slate-300 text-[6px] font-medium text-white">
-            {task.avatar}
-          </div>
-        </div>
       </div>
 
       {/* Mobile */}
@@ -65,34 +60,31 @@ export const TaskRow = ({ task }) => {
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <p className="text-[10px] font-medium text-slate-700">
-              {task.title}
+              {task.nombre}
             </p>
 
             <div className="mt-1 flex items-center gap-1 text-[8px] text-slate-400">
               <FiFolder size={9} />
-              {task.project}
+              {task.nombreProyecto}
             </div>
           </div>
 
-          <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-300 text-[7px] font-medium text-white">
-            {task.avatar}
-          </div>
         </div>
 
         <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
           <TaskBadge
             type="status"
-            value={task.status}
+            value={task.estado}
           />
 
           <TaskBadge
             type="priority"
-            value={task.priority}
+            value={task.prioridad}
           />
 
           <span className="flex items-center gap-1 text-[8px] text-slate-400">
             <FiCalendar size={9} />
-            {task.dueDate}
+            {task.fechaLimite}
           </span>
         </div>
       </div>
