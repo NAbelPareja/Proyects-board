@@ -18,7 +18,7 @@ export const ProjectFilters = ({
       <div className="relative flex-1 lg:max-w-[310px]">
         <FiSearch
           size={12}
-          className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400"
+          className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 dark:bg-slate-800 dark:text-slate-100"
         />
 
         <input
@@ -32,6 +32,7 @@ export const ProjectFilters = ({
             outline-none
             focus:border-indigo-300
             focus:ring-1 focus:ring-indigo-100
+            dark:bg-slate-800 dark:text-slate-100
           "
         />
       </div>
@@ -46,7 +47,7 @@ export const ProjectFilters = ({
             name="prioridad"
             value={marcarPrioridad}
             onChange={(e) => setMarcarPrioridad(e.target.value)}
-            className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+            className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:bg-slate-800 dark:text-slate-100"
           >
             <option value="">Prioridad</option>
             <option value="Baja">Baja</option>
@@ -56,7 +57,7 @@ export const ProjectFilters = ({
 
           <FiChevronDown
             size={14}
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:bg-slate-800 dark:text-slate-100"
           />
         </div>
 
@@ -66,7 +67,7 @@ export const ProjectFilters = ({
             name="categoria"
             value={marcarCategoria}
             onChange={(e) => setMarcarCategoria(e.target.value)}
-            className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+            className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:bg-slate-800 dark:text-slate-100"
           >
             <option value="">Categoria</option>
             <option value="Desarrollo">Desarrollo</option>
@@ -77,18 +78,18 @@ export const ProjectFilters = ({
 
           <FiChevronDown
             size={14}
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:bg-slate-800 dark:text-slate-100"
           />
         </div>
 
         <button
-          className="flex h-8 items-center gap-1 rounded-md border border-gray-200 bg-white px-3 transition-colors text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+          className="flex h-8 items-center gap-1 rounded-md border border-gray-200 bg-white px-3 transition-colors text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:bg-slate-800 dark:text-slate-100"
           type="button"
           onClick={() => setMarcarFavorito(!marcarFavorito)}
         >
           Favoritos
           {marcarFavorito ? (
-            <AiFillStar size={18} className="text-yellow-500" />
+            <AiFillStar size={18} className="text-yellow-500 dark:bg-slate-800 dark:text-slate-100" />
           ) : (
             <FiStar size={15} />
           )}

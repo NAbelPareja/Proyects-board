@@ -6,16 +6,20 @@ const options = [
   { key: "sistema", label: "Sistema", icon: FiMonitor },
 ];
 
-export const ThemeSelector = ({ value = "claro", onChange = () => {} }) => {
+export const ThemeSelector = ({ value = "claro", handleChange = () => {} }) => {
   return (
     <div className="flex flex-wrap gap-2">
       {options.map(({ key, label, icon: Icon }) => {
-        const active = key === value;
-        return (
-          <button
+  const active = key === value;
+
+  return (
+    <button
             key={key}
             type="button"
-            onClick={() => onChange(key)}
+            onClick={() => {
+              console.log("CLICK:", key);
+              handleChange(key);
+            }}
             aria-pressed={active}
             className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
               active
@@ -26,8 +30,8 @@ export const ThemeSelector = ({ value = "claro", onChange = () => {} }) => {
             <Icon className="h-4 w-4" />
             {label}
           </button>
-        );
-      })}
+  );
+})}
     </div>
   );
 };

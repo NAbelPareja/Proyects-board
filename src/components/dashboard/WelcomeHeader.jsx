@@ -3,7 +3,7 @@
 export const WelcomeHeader = () => {
   return (
     <div className="mb-5">
-      <h1 className="text-xl font-semibold tracking-tight text-slate-900">
+      <h1 className="text-xl font-semibold tracking-tight text-slate-900 dark:bg-slate-800 dark:text-slate-100">
         Hola, Abel 👋
       </h1>
 

@@ -5,9 +5,9 @@ import { TaskModal } from "./TaskModal";
 export const TasksHeader = () => {
   const [isOpenTareaForm, setIsOpenTareaForm] = useState(null)
   return (
-    <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between dark:bg-slate-800 dark:text-slate-100">
       <div>
-        <h1 className="text-base font-semibold text-slate-800">
+        <h1 className="text-base font-semibold text-slate-800 dark:bg-slate-800 dark:text-slate-100">
           Tareas
         </h1>
 

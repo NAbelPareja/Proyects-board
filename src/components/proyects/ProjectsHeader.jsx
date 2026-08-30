@@ -14,9 +14,9 @@ export const ProjectsHeader = ({
 }) => {
   const {setIsModalOpen,isModalOpen,}=useProyects()
   return (
-    <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between dark:bg-slate-800 dark:text-slate-100">
       <div>
-        <h1 className="text-base font-semibold text-slate-800">Proyectos</h1>
+        <h1 className="text-base font-semibold text-slate-800 dark:bg-slate-800 dark:text-slate-100">Proyectos</h1>
 
         <p className="mt-0.5 text-[9px] text-slate-400">
           Gestiona y organiza todos tus proyectos de desarrollo.

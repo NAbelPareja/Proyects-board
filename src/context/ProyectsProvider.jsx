@@ -1,3 +1,4 @@
+import { useConfiguracion } from "../hooks/useConfiguracion";
 import { useFormularioMovimiento } from "../hooks/useFormularioMovimiento";
 import { useMovimiento } from "../hooks/useMovimiento";
 import { useTareas } from "../hooks/useTareas";
@@ -9,6 +10,8 @@ export const ProyectsProvider = ({ children }) => {
     useMovimiento();
 
   const { listaTareas, agregartarea, eliminarTarea } = useTareas();
+
+  const { tema, setTema, idioma, setIdioma } = useConfiguracion();
 
   const {
     form,
@@ -46,7 +49,11 @@ export const ProyectsProvider = ({ children }) => {
         eliminarTarea,
         formTareas,
         setFormTareas,
-        handleInputChangeTareas
+        handleInputChangeTareas,
+        tema,
+        setTema,
+        idioma,
+        setIdioma,
       }}
     >
       {children}

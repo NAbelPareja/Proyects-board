@@ -23,7 +23,7 @@ export const StatCard = ({
 }) => {
     const Icon = iconMap[icon];
   return (
-    <article className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm shadow-slate-100/50">
+    <article className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm shadow-slate-100/50 dark:bg-slate-800 dark:text-slate-100">
       {/* Icono */}
       <div
         className={`flex h-8 w-8 items-center justify-center rounded-lg ${iconStyle}`}
@@ -33,7 +33,7 @@ export const StatCard = ({
 
       {/* Valor */}
       <div className="mt-3">
-        <p className="text-lg font-semibold leading-none text-slate-900">
+        <p className="text-lg font-semibold leading-none text-slate-900 dark:text-slate-100">
           {value}
         </p>
 

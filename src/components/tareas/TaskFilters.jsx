@@ -1,14 +1,20 @@
-import {
-  FiSearch,
-  FiChevronDown,
-} from "react-icons/fi";
+import { FiSearch} from "react-icons/fi";
+import { useProyects } from "../../hooks/useProyects";
 
 export const TaskFilters = ({
   search,
   setSearch,
+  marcarEstadoTarea,
+  setMarcarEstadoTarea,
+  marcarPrioridadTarea,
+  setMarcarPrioridad,
+  marcarProyecto,
+  setMarcarProyecto,
 }) => {
+
+  const {listaProyectos} =useProyects()
   return (
-    <div className="mb-3 flex flex-col gap-2 sm:flex-row">
+    <div className="mb-3 flex flex-col gap-2 sm:flex-row ">
       {/* Search */}
       <div className="relative flex-1 sm:max-w-[310px]">
         <FiSearch
@@ -17,9 +23,9 @@ export const TaskFilters = ({
             absolute left-2.5 top-1/2
             -translate-y-1/2
             text-slate-400
+            dark:bg-slate-800 dark:text-slate-100
           "
         />
-
         <input
           type="text"
           value={search}
@@ -39,6 +45,7 @@ export const TaskFilters = ({
             focus:border-indigo-300
             focus:ring-1
             focus:ring-indigo-100
+            dark:bg-slate-800 dark:text-slate-100
           "
         />
       </div>
@@ -59,53 +66,51 @@ export const TaskFilters = ({
           Todos
         </button>
 
-        <button
-          className="
-            flex h-8 items-center gap-1
-            rounded-md
-            border border-slate-200
-            bg-white
-            px-3
-            text-[9px]
-            text-slate-600
-            hover:bg-slate-50
-          "
-        >
-          Estado
-          <FiChevronDown size={10} />
-        </button>
+        <div>
+          <select
+            className="w-full h-9 rounded-lg border border-slate-200 px-2 text-xs text-slate-700 outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition bg-white dark:bg-slate-800 dark:text-slate-100"
+            id="estado"
+            name="estado"
+            value={marcarEstadoTarea}
+            onChange={(e) => setMarcarEstadoTarea(e.target.value)}
+          >
+            <option value="">Estado</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="en_progreso">En progreso</option>
+            <option value="completado">Completado</option>
+          </select>
+        </div>
 
-        <button
-          className="
-            flex h-8 items-center gap-1
-            rounded-md
-            border border-slate-200
-            bg-white
-            px-3
-            text-[9px]
-            text-slate-600
-            hover:bg-slate-50
-          "
-        >
-          Prioridad
-          <FiChevronDown size={10} />
-        </button>
+        <div>
+          <select
+            className="w-full h-9 rounded-lg border border-slate-200 px-2 text-xs text-slate-700 outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition bg-white dark:bg-slate-800 dark:text-slate-100"
+            id="prioridad"
+            name="prioridad"
+            value={marcarPrioridadTarea}
+            onChange={(e) => setMarcarPrioridad(e.target.value)}
+          >
+            <option value="">Prioridad</option>
+            <option value="baja">Baja</option>
+            <option value="media">Media</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
 
-        <button
-          className="
-            flex h-8 items-center gap-1
-            rounded-md
-            border border-slate-200
-            bg-white
-            px-3
-            text-[9px]
-            text-slate-600
-            hover:bg-slate-50
-          "
-        >
-          Proyecto
-          <FiChevronDown size={10} />
-        </button>
+        <div >
+          <select
+            className="w-full h-9 rounded-lg border border-slate-200 px-2 text-xs text-slate-700 outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition bg-white dark:bg-slate-800 dark:text-slate-100"
+            id="nombreProyecto"
+            name="nombreProyecto"
+            value={marcarProyecto}
+            onChange={(e) => setMarcarProyecto(e.target.value)}
+          >
+          <option value="">Proyecto</option>
+      {listaProyectos.map((valor) => (
+          <option key={valor.id} value={valor.nombre}>{valor.nombre}</option>
+      ))}
+
+      </select>
+      </div>
       </div>
     </div>
   );

@@ -16,12 +16,12 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
   } = useProyects();
 
   return (
-    <form onSubmit={handleGuardarProyecto} className="space-y-4 px-5 py-4">
+    <form onSubmit={handleGuardarProyecto} className="space-y-4 px-5 py-4 dark:bg-slate-800 dark:text-slate-100">
       <div className="space-y-4 px-5 py-4">
         <div>
           <label
             htmlFor="nombre"
-            className="mb-1.5 block text-[11px] font-medium text-gray-800"
+            className="mb-1.5 block text-[11px] font-medium text-gray-800 dark:bg-slate-800 dark:text-slate-100"
           >
             Nombre<span className="text-red-500">*</span>
           </label>
@@ -33,7 +33,7 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
             value={form.nombre}
             onChange={handleInputChange}
             placeholder="Ej. MyLibrary"
-            className="h-9 w-full rounded-lg border border-gray-200 px-3 text-xs text-gray-800 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+            className="h-9 w-full rounded-lg border border-gray-200 px-3 text-xs text-gray-800 outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:bg-slate-800 dark:text-slate-100"
           />
         </div>
 
@@ -41,7 +41,7 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
         <div>
           <label
             htmlFor="descripcion"
-            className="mb-1.5 block text-[11px] font-medium text-gray-800"
+            className="mb-1.5 block text-[11px] font-medium text-gray-800 dark:bg-slate-800 dark:text-slate-100"
           >
             Descripción
           </label>
@@ -58,11 +58,11 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
         </div>
 
         {/* Categoría + prioridad */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
           <div>
             <label
               htmlFor="categoria"
-              className="mb-1.5 block text-[11px] font-medium text-gray-800"
+              className="mb-1.5 block text-[11px] font-medium text-gray-800 dark:bg-slate-800 dark:text-slate-100"
             >
               Categoría
             </label>
@@ -73,7 +73,7 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
                 name="categoria"
                 value={form.categoria}
                 onChange={handleInputChange}
-                className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:bg-slate-800 dark:text-slate-100"
               >
                 <option>Desarrollo</option>
                 <option>Diseño</option>
@@ -83,7 +83,7 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
 
               <FiChevronDown
                 size={14}
-                className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:bg-slate-800 dark:text-slate-100"
               />
             </div>
           </div>
@@ -91,7 +91,7 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
           <div>
             <label
               htmlFor="prioridad"
-              className="mb-1.5 block text-[11px] font-medium text-gray-800"
+              className="mb-1.5 block text-[11px] font-medium text-gray-800 dark:bg-slate-800 dark:text-slate-100"
             >
               Prioridad<span className="text-red-500">*</span>
             </label>
@@ -102,7 +102,7 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
                 name="prioridad"
                 value={form.prioridad}
                 onChange={handleInputChange}
-                className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                className="h-9 w-full appearance-none rounded-lg border border-gray-200 bg-white px-3 pr-8 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:bg-slate-800 dark:text-slate-100"
               >
                 <option>Baja</option>
                 <option>Media</option>
@@ -111,7 +111,7 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
 
               <FiChevronDown
                 size={14}
-                className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:bg-slate-800 dark:text-slate-100"
               />
             </div>
           </div>
@@ -121,7 +121,7 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
         <div>
           <label
             htmlFor="fechaLimite"
-            className="mb-1.5 block text-[11px] font-medium text-gray-800"
+            className="mb-1.5 block text-[11px] font-medium text-gray-800 dark:bg-slate-800 dark:text-slate-100"
           >
             Fecha límite<span className="text-red-500">*</span>
           </label>
@@ -133,12 +133,12 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
               type="date"
               value={form.fechaLimite}
               onChange={handleInputChange}
-              className="h-9 w-full rounded-lg border border-gray-200 px-3 pr-10 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+              className="h-9 w-full rounded-lg border border-gray-200 px-3 pr-10 text-xs text-gray-700 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 dark:bg-slate-800 dark:text-slate-100"
             />
 
             <FiCalendar
               size={14}
-              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:bg-slate-800 dark:text-slate-100 dark:bg-slate-800 dark:text-slate-100"
             />
           </div>
         </div>
@@ -148,7 +148,7 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
         {/* Favorito */}
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-[11px] font-medium text-gray-800">
+            <p className="text-[11px] font-medium text-gray-800 dark:bg-slate-800 dark:text-slate-100">
               Marcar como favorito
             </p>
 
@@ -189,14 +189,14 @@ export const ProjectForm = ({ handleGuardarProyecto, onCancel }) => {
         <button
           type="button"
           onClick={onCancel}
-          className="h-9 rounded-lg border border-gray-200 px-4 text-xs font-medium text-gray-700 transition hover:bg-gray-50"
+          className="h-9 rounded-lg border border-gray-200 px-4 text-xs font-medium text-gray-700 transition hover:bg-gray-50 dark:bg-slate-800 dark:text-slate-100"
         >
           Cancelar
         </button>
 
         <button
           type="submit"
-          className="flex h-9 items-center justify-center gap-1.5 rounded-lg bg-indigo-500 px-4 text-xs font-medium text-white transition hover:bg-indigo-600"
+          className="flex h-9 items-center justify-center gap-1.5 rounded-lg bg-indigo-500 px-4 text-xs font-medium text-white transition hover:bg-indigo-600 "
         >
           <FiPlus size={14} />
           Crear proyecto

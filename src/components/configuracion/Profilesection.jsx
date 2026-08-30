@@ -15,7 +15,7 @@ export const ProfileSection = ({
     <section>
       <SectionLabel>Perfil</SectionLabel>
 
-      <div className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+      <div className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5 dark:bg-slate-800 dark:text-slate-100">
         <div className="flex items-center gap-4">
           <img
             src={user.avatarUrl}

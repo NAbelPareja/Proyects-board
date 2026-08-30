@@ -9,10 +9,10 @@ export const ProjectCard = ({
   project
 }) => {
   return (
-    <article className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm shadow-slate-100/50">
+    <article className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm shadow-slate-100/50 dark:bg-slate-800 dark:text-slate-100">
       {/* Header */}
       <div className="flex items-start justify-between">
-        <span className="rounded-md bg-slate-100 px-2 py-1 text-[8px] font-medium text-slate-500">
+        <span className="rounded-md bg-slate-100 px-2 py-1 text-[8px] font-medium text-slate-500 ">
           {project.categoria}
         </span>
 
@@ -22,8 +22,8 @@ export const ProjectCard = ({
               size={12}
               className={
                 project.favorito
-                  ? "fill-amber-400 text-amber-400"
-                  : "text-slate-400"
+                  ? "fill-amber-400 text-amber-400 "
+                  : "text-slate-400 "
               }
             />
           </button>
@@ -36,7 +36,7 @@ export const ProjectCard = ({
 
       {/* Información */}
       <div className="mt-2">
-        <h3 className="text-xs font-semibold text-slate-800">
+        <h3 className="text-xs font-semibold text-slate-800 dark:text-slate-100">
           {project.nombre}
         </h3>
 

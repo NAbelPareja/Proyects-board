@@ -46,7 +46,7 @@ export const Proyectos = () => {
 
 
   return (
-    <div className=" min-h-screen bg-slate-50 text-slate-800">
+    <div className=" min-h-screen bg-slate-50 text-slate-800 dark:bg-slate-800 dark:text-slate-100">
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       <div className="md:ml-52">

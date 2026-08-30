@@ -28,7 +28,7 @@ const colors = [
 export const ProjectColorPicker = ({ value, onChange }) => {
   return (
     <div>
-      <p className="mb-2 text-[11px] font-medium text-gray-800">
+      <p className="mb-2 text-[11px] font-medium text-gray-800 dark:bg-slate-800 dark:text-slate-100">
         Color del proyecto
       </p>
 

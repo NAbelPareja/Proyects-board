@@ -7,7 +7,7 @@ export const DataSection = ({ onExport = () => {}, onDeleteAll = () => {} }) => 
     <section className="mt-8">
       <SectionLabel>Datos</SectionLabel>
 
-      <div className="rounded-xl border border-slate-200 bg-white px-4 sm:px-5">
+      <div className="rounded-xl border border-slate-200 bg-white px-4 sm:px-5 dark:bg-slate-800 dark:text-slate-100">
         <DataActionRow
           title="Exportar datos"
           description="Descarga todos tus proyectos y tareas en formato JSON."

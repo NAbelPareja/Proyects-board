@@ -32,10 +32,11 @@ export const ProjectCard = ({
         transition
         hover:border-indigo-200
         hover:shadow-sm
+        dark:bg-slate-800 dark:text-slate-100
       "
     >
       {/* Cabecera */}
-      <div className="flex items-start justify-between gap-2">
+      <div className="flex items-start justify-between gap-2 ">
         <div className="min-w-0">
           <span
             className="
@@ -47,7 +48,7 @@ export const ProjectCard = ({
             {project.categoria}
           </span>
 
-          <h2 className="mt-1.5 truncate text-[10px] font-semibold text-slate-700">
+          <h2 className="mt-1.5 truncate text-[10px] font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-100">
             {project.nombre}
           </h2>
 
@@ -72,7 +73,7 @@ export const ProjectCard = ({
 
           <div className="flex flex-row gap-1">
             <button
-              className="flex felx-row items-center text-[8px] rounded border border-red-500 p-1 bg-red-50 text-red-600 hover:bg-red-100 font-bold "
+              className="flex felx-row items-center text-[8px] rounded border border-amber-500 p-1 bg-amber-50 text-amber-600 hover:bg-amber-100 font-bold "
               onClick={() => {
                 (handleEditaProyecto(project.id), setIsModalOpen(true));
               }}
@@ -85,7 +86,7 @@ export const ProjectCard = ({
               <ProjectModal onClose={() => setIsModalOpen(false)} />
             )}
             <button
-              className="flex flex-row items-center text-[8px] rounded border border-amber-500 p-1 bg-amber-50 text-amber-600 hover:bg-amber-100 font-bold"
+              className="flex flex-row items-center text-[8px] rounded border border-red-500 p-1 bg-red-50 text-red-600 hover:bg-red-100 font-bold"
               onClick={() => eliminarProyecto(project.id)}
             >
               {" "}
@@ -171,6 +172,9 @@ export const ProjectCard = ({
           bg-indigo-50/40
           text-[8px] font-medium text-indigo-500
           transition hover:bg-indigo-50
+          hover:dark:hover:bg-indigo-500
+          dark:bg-slate-800 dark:text-slate-100
+          
         "
       >
         Abrir proyecto
