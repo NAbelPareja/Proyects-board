@@ -3,13 +3,17 @@ import {
   FiGrid,
   FiFolder,
   FiCheckSquare,
-  FiCalendar,
   FiSettings,
   FiUser,
   FiX,
 } from "react-icons/fi";
 
 const menuItems = [
+  {
+    label: "Home",
+    icon: FiGrid,
+    path: "/",
+  },
   {
     label: "Dashboard",
     icon: FiGrid,
@@ -26,11 +30,7 @@ const menuItems = [
     icon: FiCheckSquare,
     path: "/tareas",
   },
-  {
-    label: "Calendario",
-    icon: FiCalendar,
-    path: "/calendario",
-  },
+  
 ];
 export const Sidebar = ({ isOpen, onClose }) => {
   return (
