@@ -52,19 +52,6 @@ export const TaskFilters = ({
 
       {/* Filters */}
       <div className="flex flex-wrap gap-1.5">
-        <button
-          className="
-            h-8 rounded-md
-            border border-indigo-400
-            bg-indigo-500
-            px-3
-            text-[9px]
-            font-medium
-            text-white
-          "
-        >
-          Todos
-        </button>
 
         <div>
           <select

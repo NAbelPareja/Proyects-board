@@ -17,7 +17,6 @@ export const useConfiguracion = () => {
 
   }, [tema]);
 
-    console.log("El tema es:", tema)
 
     const [idioma, setIdioma] = useState(()=>{
         return localStorage.getItem("idioma") || "es"
@@ -27,6 +26,5 @@ export const useConfiguracion = () => {
     localStorage.setItem("idioma", idioma);
   }, [idioma]);
 
-    console.log("el valor de stado de tema es: ", tema)
     return ({tema, setTema, idioma, setIdioma})
 }

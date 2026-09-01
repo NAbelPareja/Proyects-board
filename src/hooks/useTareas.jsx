@@ -28,11 +28,19 @@ export const useTareas = () => {
         dispatch(action)
     }
 
+    const eliminarTareashijas = (nombre) =>{
+        const action = {
+            type: "eliminarTareasHijas",
+            payload: nombre
+        }
+        dispatch(action)
+    }
+
     useEffect(() => {
     localStorage.setItem("listaTareas", JSON.stringify(listaTareas))
     }, [listaTareas])
     
-  return {listaTareas ,agregartarea, eliminarTarea}
+  return {listaTareas ,agregartarea, eliminarTarea,eliminarTareashijas}
 
 }
 

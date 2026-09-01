@@ -30,7 +30,7 @@ export const Tareas = () => {
     const cumpleCategoriaTarea =
       !marcarPrioridadTarea || prioridadTarea.includes(marcarPrioridadTarea);
     const cumpleProyectoTarea =
-      !marcarProyecto || proyecto.includes(marcarProyecto);
+      !marcarProyecto || proyecto.includes(marcarProyecto.toLowerCase());
 
     return (
       cumpleNombreTarea &&

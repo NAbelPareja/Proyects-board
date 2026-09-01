@@ -17,7 +17,7 @@ export const ThemeSelector = ({ value = "claro", handleChange = () => {} }) => {
             key={key}
             type="button"
             onClick={() => {
-              console.log("CLICK:", key);
+              
               handleChange(key);
             }}
             aria-pressed={active}

@@ -9,7 +9,7 @@ export const ProyectsProvider = ({ children }) => {
   const { listaProyectos, agregarProyecto, editarProyecto, eliminarProyecto } =
     useMovimiento();
 
-  const { listaTareas, agregartarea, eliminarTarea } = useTareas();
+  const { listaTareas, agregartarea, eliminarTarea,eliminarTareashijas } = useTareas();
 
   const { tema, setTema, idioma, setIdioma } = useConfiguracion();
 
@@ -47,6 +47,7 @@ export const ProyectsProvider = ({ children }) => {
         listaTareas,
         agregartarea,
         eliminarTarea,
+        eliminarTareashijas,
         formTareas,
         setFormTareas,
         handleInputChangeTareas,

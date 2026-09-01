@@ -21,24 +21,26 @@ export const DataActionRow = ({
   const styles = variantStyles[variant];
 
   return (
-    <div
-      className={`flex flex-col gap-3 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between dark:bg-slate-800 dark:text-slate-100 ${
-        !isLast ? "border-b border-slate-100" : ""
-      }`}
-    >
-      <div>
-        <p className={`text-sm font-semibold  ${styles.title}`}>{title}</p>
-        <p className="mt-0.5 text-sm text-slate-500 ">{description}</p>
-      </div>
-
-      <button
-        type="button"
-        onClick={onAction}
-        className={`inline-flex items-center justify-center gap-1.5 self-start rounded-lg px-3.5 py-2 text-sm font-medium sm:self-auto ${styles.button}`}
+    <>
+      <div
+        className={`flex flex-col gap-3 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between dark:bg-slate-800 dark:text-slate-100 ${
+          !isLast ? "border-b border-slate-100" : ""
+        }`}
       >
-        {Icon && <Icon className="h-3.5 w-3.5" />}
-        {actionLabel}
-      </button>
-    </div>
+        <div>
+          <p className={`text-sm font-semibold  ${styles.title}`}>{title}</p>
+          <p className="mt-0.5 text-sm text-slate-500 ">{description}</p>
+        </div>
+        <button
+          type="button"
+          onClick={onAction}
+          className={`inline-flex items-center justify-center gap-1.5 self-start rounded-lg px-3.5 py-2 text-sm font-medium sm:self-auto ${styles.button}`}
+        >
+          {Icon && <Icon className="h-3.5 w-3.5" />}
+          {actionLabel}
+        </button>
+      </div>
+      
+    </>
   );
 };

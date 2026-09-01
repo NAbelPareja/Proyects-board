@@ -21,7 +21,7 @@ export const ProjectCard = ({
   isModalOpen,
   handleEditaProyecto
 }) => {
-  const { eliminarProyecto, setIsModalOpen } =
+  const { eliminarProyecto, setIsModalOpen, eliminarTareashijas } =
     useProyects();
   return (
     <article
@@ -87,7 +87,7 @@ export const ProjectCard = ({
             )}
             <button
               className="flex flex-row items-center text-[8px] rounded border border-red-500 p-1 bg-red-50 text-red-600 hover:bg-red-100 font-bold"
-              onClick={() => eliminarProyecto(project.id)}
+              onClick={() => {eliminarProyecto(project.id); eliminarTareashijas(project.nombre)}}
             >
               {" "}
               <MdDelete />
@@ -174,7 +174,6 @@ export const ProjectCard = ({
           transition hover:bg-indigo-50
           hover:dark:hover:bg-indigo-500
           dark:bg-slate-800 dark:text-slate-100
-          
         "
       >
         Abrir proyecto
