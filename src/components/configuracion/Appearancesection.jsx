@@ -1,5 +1,5 @@
 
-import { SectionLabel } from "./SectionLabel";
+import { SectionLabel } from "./Sectionlabel";
 import { ThemeSelector } from "./Themeselector"
 import { useProyects } from "../../hooks/useProyects";
 

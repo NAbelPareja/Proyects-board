@@ -1,6 +1,6 @@
 import { FiDownload, FiTrash2 } from "react-icons/fi";
-import { SectionLabel } from "./SectionLabel";
-import { DataActionRow } from "./DataActionRow";
+import { SectionLabel } from "./Sectionlabel";
+import { DataActionRow } from   "./Dataactionrow";
 
 export const DataSection = ({ onExportPdf = () => {},onExportCsv = () => {} , onDeleteAll = () => {} }) => {
   return (

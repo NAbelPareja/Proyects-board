@@ -1,7 +1,7 @@
 
 import { ProfileSection } from "./Profilesection"
 import { AppearanceSection } from "./Appearancesection"
-import { DataSection } from "./Datasection"
+import { DataSection } from   "./Datasection"
 import { ConfiguracionHeader } from "./ConfiguracionHeader";
 import { useProyects } from "../../hooks/useProyects";
 import { descargarJSON } from "../../utils/descargarJSON";

@@ -1,5 +1,5 @@
 import { FiEdit2 } from "react-icons/fi";
-import { SectionLabel } from "./SectionLabel";
+import { SectionLabel }from "./Sectionlabel";
 import { useState } from "react";
 import { FiSave, FiX } from "react-icons/fi";
 
